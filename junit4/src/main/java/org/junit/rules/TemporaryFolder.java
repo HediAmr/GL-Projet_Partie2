@@ -288,7 +288,7 @@ public class TemporaryFolder extends ExternalResource {
         }
         throw new IOException("Unable to create temporary directory in: "
             + parentFolder.toString() + ". Tried " + TEMP_DIR_ATTEMPTS + " times. "
-            + "Last attempted to create: " + createdFolder.toString());
+            + "Last attempted to create: " + createdFolder);
     }
 
     /**

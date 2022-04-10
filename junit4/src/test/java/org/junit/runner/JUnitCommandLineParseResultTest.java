@@ -135,7 +135,7 @@ public class JUnitCommandLineParseResultTest {
         }
     }
 
-    public static interface DummyCategory0 {
+    public interface DummyCategory0 {
     }
 
     public static class DummyTest {

@@ -182,9 +182,9 @@ public class FilterOptionIntegrationTest {
         }
     }
 
-    public static interface DummyCategory0 {
+    public interface DummyCategory0 {
     }
 
-    public static interface DummyCategory1 {
+    public interface DummyCategory1 {
     }
 }

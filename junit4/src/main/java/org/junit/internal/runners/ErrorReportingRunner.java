@@ -37,7 +37,7 @@ public class ErrorReportingRunner extends Runner {
     @Override
     public Description getDescription() {
         Description description = Description.createSuiteDescription(classNames);
-        for (Throwable each : causes) {
+        for (Throwable ignored : causes) {
             description.addChild(describeCause());
         }
         return description;

@@ -264,18 +264,18 @@ public class ExpectedException implements TestRule {
                 failDueToMissingException();
             }
         }
-    }
 
-    private void handleException(Throwable e) throws Throwable {
-        if (isAnyExceptionExpected()) {
-            MatcherAssert.assertThat(e, matcherBuilder.build());
-        } else {
-            throw e;
+        private void handleException(Throwable e) throws Throwable {
+            if (isAnyExceptionExpected()) {
+                MatcherAssert.assertThat(e, matcherBuilder.build());
+            } else {
+                throw e;
+            }
         }
-    }
 
-    private void failDueToMissingException() throws AssertionError {
-        fail(missingExceptionMessage());
+        private void failDueToMissingException() throws AssertionError {
+            fail(missingExceptionMessage());
+        }
     }
     
     private String missingExceptionMessage() {

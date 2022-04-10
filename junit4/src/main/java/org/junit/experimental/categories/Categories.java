@@ -303,6 +303,23 @@ public class Categories extends Suite {
             c.remove(null);
             return c;
         }
+
+        private static boolean hasAssignableTo(Set<Class<?>> assigns, Class<?> to) {
+            for (final Class<?> from : assigns) {
+                if (to.isAssignableFrom(from)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static Set<Class<?>> nullableClassToSet(Class<?> nullableClass) {
+            // Not throwing a NPE if t is null is a bad idea, but it's the behavior from JUnit 4.11
+            // for CategoryFilter(Class<?> includedCategory, Class<?> excludedCategory)
+            return nullableClass == null
+                    ? Collections.<Class<?>>emptySet()
+                    : Collections.<Class<?>>singleton(nullableClass);
+        }
     }
 
     public Categories(Class<?> klass, RunnerBuilder builder) throws InitializationError {
@@ -339,15 +356,6 @@ public class Categories extends Suite {
         return annotation == null || annotation.matchAny();
     }
 
-    private static boolean hasAssignableTo(Set<Class<?>> assigns, Class<?> to) {
-        for (final Class<?> from : assigns) {
-            if (to.isAssignableFrom(from)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private static Set<Class<?>> createSet(Class<?>[] classes) {
         // Not throwing a NPE if t is null is a bad idea, but it's the behavior from JUnit 4.12
         // for include(boolean, Class<?>...) and exclude(boolean, Class<?>...)
@@ -363,13 +371,5 @@ public class Categories extends Suite {
         return classes.length == 1
             ? Collections.<Class<?>>singleton(classes[0])
             : new LinkedHashSet<Class<?>>(Arrays.asList(classes));
-    }
-
-    private static Set<Class<?>> nullableClassToSet(Class<?> nullableClass) {
-        // Not throwing a NPE if t is null is a bad idea, but it's the behavior from JUnit 4.11
-        // for CategoryFilter(Class<?> includedCategory, Class<?> excludedCategory)
-        return nullableClass == null
-                ? Collections.<Class<?>>emptySet()
-                : Collections.<Class<?>>singleton(nullableClass);
     }
 }

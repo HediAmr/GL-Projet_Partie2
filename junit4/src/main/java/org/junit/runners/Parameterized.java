@@ -471,8 +471,7 @@ public class Parameterized extends Suite {
         }
 
         private List<TestWithParameters> createTestsForParameters(
-                Iterable<Object> allParameters, String namePattern)
-                throws Exception {
+                Iterable<Object> allParameters, String namePattern) {
             int i = 0;
             List<TestWithParameters> children = new ArrayList<TestWithParameters>();
             for (Object parametersOfSingleTest : allParameters) {
@@ -483,7 +482,7 @@ public class Parameterized extends Suite {
         }
 
         private static Exception parametersMethodReturnedWrongType(
-                TestClass testClass, FrameworkMethod parametersMethod) throws Exception {
+                TestClass testClass, FrameworkMethod parametersMethod) {
             String className = testClass.getName();
             String methodName = parametersMethod.getName();
             String message = MessageFormat.format(

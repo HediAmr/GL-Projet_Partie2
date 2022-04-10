@@ -83,11 +83,9 @@ public abstract class Ordering {
      *
      * @param factory factory to use to create the ordering
      * @param annotatedTestClass test class that is annotated with {@link OrderWith}.
-     * @throws InvalidOrderingException if the instance could not be created
      */
     public static Ordering definedBy(
-            Ordering.Factory factory, Description annotatedTestClass)
-            throws InvalidOrderingException {
+            Ordering.Factory factory, Description annotatedTestClass) {
         if (factory == null) {
             throw new NullPointerException("factory cannot be null");
         }

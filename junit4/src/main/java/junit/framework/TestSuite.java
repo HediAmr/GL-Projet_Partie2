@@ -46,7 +46,7 @@ public class TestSuite implements Test {
      * ...as the moon sets over the early morning Merlin, Oregon
      * mountains, our intrepid adventurers type...
      */
-    static public Test createTest(Class<?> theClass, String name) {
+    public static Test createTest(Class<?> theClass, String name) {
         Constructor<?> constructor;
         try {
             constructor = getTestConstructor(theClass);
@@ -56,12 +56,12 @@ public class TestSuite implements Test {
         Object test;
         try {
             if (constructor.getParameterTypes().length == 0) {
-                test = constructor.newInstance(new Object[0]);
+                test = constructor.newInstance();
                 if (test instanceof TestCase) {
                     ((TestCase) test).setName(name);
                 }
             } else {
-                test = constructor.newInstance(new Object[]{name});
+                test = constructor.newInstance(name);
             }
         } catch (InstantiationException e) {
             return (warning("Cannot instantiate test case: " + name + " (" + Throwables.getStacktrace(e) + ")"));
@@ -140,7 +140,7 @@ public class TestSuite implements Test {
             }
             superClass = superClass.getSuperclass();
         }
-        if (fTests.size() == 0) {
+        if (fTests.isEmpty()) {
             addTest(warning("No tests found in " + theClass.getName()));
         }
     }

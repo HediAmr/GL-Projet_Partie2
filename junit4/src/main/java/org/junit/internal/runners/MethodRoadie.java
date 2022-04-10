@@ -112,7 +112,6 @@ public class MethodRoadie {
         } catch (InvocationTargetException e) {
             Throwable actual = e.getTargetException();
             if (actual instanceof AssumptionViolatedException) {
-                return;
             } else if (!testMethod.expectsException()) {
                 addFailure(actual);
             } else if (testMethod.isUnexpected(actual)) {

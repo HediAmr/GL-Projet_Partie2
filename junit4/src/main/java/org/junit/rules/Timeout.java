@@ -143,7 +143,7 @@ public class Timeout implements TestRule {
      * @since 4.12
      */
     protected Statement createFailOnTimeoutStatement(
-            Statement statement) throws Exception {
+            Statement statement) {
         return FailOnTimeout.builder()
             .withTimeout(timeout, timeUnit)
             .withLookingForStuckThread(lookForStuckThread)

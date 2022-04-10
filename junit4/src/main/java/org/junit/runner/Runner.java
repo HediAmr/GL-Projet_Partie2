@@ -20,11 +20,6 @@ import org.junit.runner.notification.RunNotifier;
  * @since 4.0
  */
 public abstract class Runner implements Describable {
-    /*
-     * (non-Javadoc)
-     * @see org.junit.runner.Describable#getDescription()
-     */
-    public abstract Description getDescription();
 
     /**
      * Run the tests for this runner.

@@ -6,6 +6,7 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -395,7 +396,7 @@ public class Parameterized extends Suite {
         }
 
         private ParametersRunnerFactory getParametersRunnerFactory()
-                throws InstantiationException, IllegalAccessException {
+                throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
             UseParametersRunnerFactory annotation = testClass
                     .getAnnotation(UseParametersRunnerFactory.class);
             if (annotation == null) {
@@ -403,7 +404,7 @@ public class Parameterized extends Suite {
             } else {
                 Class<? extends ParametersRunnerFactory> factoryClass = annotation
                         .value();
-                return factoryClass.newInstance();
+                return factoryClass.getDeclaredConstructor().newInstance();
             }
         }
 

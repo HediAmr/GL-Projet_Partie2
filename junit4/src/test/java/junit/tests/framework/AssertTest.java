@@ -152,7 +152,7 @@ public class AssertTest extends TestCase {
         assertNotSame(null, new Integer(1));
         assertNotSame(new Integer(1), new Integer(1));
         try {
-            Integer obj = new Integer(1);
+            Integer obj = 1;
             assertNotSame(obj, obj);
         } catch (AssertionFailedError e) {
             return;

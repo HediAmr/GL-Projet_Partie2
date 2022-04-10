@@ -107,7 +107,7 @@ class RuleContainer {
         RuleEntry(Object rule, int type, Integer order) {
             this.rule = rule;
             this.type = type;
-            this.order = order != null ? order.intValue() : Rule.DEFAULT_ORDER;
+            this.order = order != null ? order : Rule.DEFAULT_ORDER;
         }
     }
 }

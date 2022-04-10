@@ -678,7 +678,7 @@ public class AssertionTest {
     @Test
     public void errorMessageDistinguishesDifferentValuesWithSameToString() {
         try {
-            assertEquals("4", Integer.valueOf(4));
+            assertEquals("4", 4);
         } catch (AssertionError e) {
             assertEquals("expected: java.lang.String<4> but was: java.lang.Integer<4>", e.getMessage());
             return;
@@ -788,8 +788,8 @@ public class AssertionTest {
 
     @Test
     public void assertNotEqualsIncludesCorrectMessage() {
-        Integer value1 = new Integer(1);
-        Integer value2 = new Integer(1);
+        Integer value1 = 1;
+        Integer value2 = 1;
         String message = "The values should be different";
 
         try {

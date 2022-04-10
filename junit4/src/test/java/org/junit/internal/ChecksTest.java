@@ -12,7 +12,7 @@ public class ChecksTest {
 
     @Test
     public void notNullShouldReturnNonNullValues() {
-        Double value = Double.valueOf(3.14);
+        Double value = 3.14;
 
         Double result = notNull(value);
 
@@ -31,7 +31,7 @@ public class ChecksTest {
 
     @Test
     public void notNullWithMessageShouldReturnNonNullValues() {
-        Float value = Float.valueOf(3.14f);
+        Float value = 3.14f;
 
         Float result = notNull(value, "woops");
 

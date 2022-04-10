@@ -20,7 +20,7 @@ public class SuiteDescriptionTest {
         assertFalse(childless.equals(namedB));
         assertEquals(childless, twoKids);
         assertEquals(twoKids, anotherTwoKids);
-        assertFalse(twoKids.equals(Integer.valueOf(5)));
+        assertFalse(twoKids.equals(5));
     }
 
     @Test

@@ -47,7 +47,7 @@ final class ReflectiveThreadMXBean implements ThreadMXBean {
    */
   public long getThreadCpuTime(long id) {
     if (Holder.getThreadCpuTimeMethod != null) {
-      Exception error = null;
+      Exception error;
       try {
         return (Long) Holder.getThreadCpuTimeMethod.invoke(threadMxBean, id);
       } catch (ClassCastException e) {

@@ -97,7 +97,7 @@ public abstract class BaseTestRunner implements TestListener {
             clearStatus();
             return null;
         }
-        Class<?> testClass = null;
+        Class<?> testClass;
         try {
             testClass = loadSuiteClass(suiteClassName);
         } catch (ClassNotFoundException e) {
@@ -111,7 +111,7 @@ public abstract class BaseTestRunner implements TestListener {
             runFailed("Error: " + e);
             return null;
         }
-        Method suiteMethod = null;
+        Method suiteMethod;
         try {
             suiteMethod = testClass.getMethod(SUITE_METHODNAME);
         } catch (Exception e) {
@@ -123,7 +123,7 @@ public abstract class BaseTestRunner implements TestListener {
             runFailed("Suite() method must be static");
             return null;
         }
-        Test test = null;
+        Test test;
         try {
             test = (Test) suiteMethod.invoke(null); // static method
             if (test == null) {

@@ -406,7 +406,7 @@ public class AssertionTest {
         assertEquals('a', 'a');
         assertEquals((short) 1, (short) 1);
         assertEquals(1, 1); // int by default, cast is unnecessary
-        assertEquals(1l, 1l);
+        assertEquals(1L, 1L);
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }
@@ -482,7 +482,7 @@ public class AssertionTest {
 
     @Test(expected = AssertionError.class)
     public void longsNotEqual() {
-        assertEquals(1l, 2l);
+        assertEquals(1L, 2L);
     }
 
     @Test(expected = AssertionError.class)

@@ -638,7 +638,7 @@ public class ParameterizedTestTest {
         private static final AtomicBoolean dataCalled = new AtomicBoolean(false);
 
         @Parameters
-        public static Iterable<? extends Object> data() {
+        public static Iterable<?> data() {
             if (!dataCalled.compareAndSet(false, true)) {
                 fail("Should not call @Parameters method more than once");
             }
@@ -679,7 +679,7 @@ public class ParameterizedTestTest {
     @RunWith(Parameterized.class)
     public static class SingleArgumentTestWithCollection {
         @Parameters
-        public static Iterable<? extends Object> data() {
+        public static Iterable<?> data() {
             return Collections.unmodifiableCollection(asList("first test", "second test"));
         }
 
@@ -712,7 +712,7 @@ public class ParameterizedTestTest {
     @UseParametersRunnerFactory(ExceptionThrowingRunnerFactory.class)
     public static class TestWithUseParametersRunnerFactoryAnnotation {
         @Parameters
-        public static Iterable<? extends Object> data() {
+        public static Iterable<?> data() {
             return asList("single test");
         }
 
@@ -741,7 +741,7 @@ public class ParameterizedTestTest {
     @UseParametersRunnerFactory(ExceptionThrowingRunnerFactory.class)
     public abstract static class UseParameterizedFactoryAbstractTest {
         @Parameters
-        public static Iterable<? extends Object> data() {
+        public static Iterable<?> data() {
             return asList("single test");
         }
     }

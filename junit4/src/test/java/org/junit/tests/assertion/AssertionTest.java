@@ -427,7 +427,7 @@ public class AssertionTest {
         try {
             assertEquals("message", null, o);
         } catch (AssertionError e) {
-            assertEquals("message expected:<null> but was:<" + o.toString() + ">", e.getMessage());
+            assertEquals("message expected:<null> but was:<" + o + ">", e.getMessage());
             return;
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
@@ -439,7 +439,7 @@ public class AssertionTest {
         try {
             assertEquals("message", o, null);
         } catch (AssertionError e) {
-            assertEquals("message expected:<" + o.toString() + "> but was:<null>", e.getMessage());
+            assertEquals("message expected:<" + o + "> but was:<null>", e.getMessage());
             return;
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);

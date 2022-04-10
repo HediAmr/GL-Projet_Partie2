@@ -17,10 +17,10 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.Matcher;
+import org.junit.AssumptionViolatedException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.TestCouldNotBeSkippedException;
-import org.junit.internal.AssumptionViolatedException;
 import org.junit.internal.runners.statements.Fail;
 import org.junit.runner.Description;
 import org.junit.runner.JUnitCore;

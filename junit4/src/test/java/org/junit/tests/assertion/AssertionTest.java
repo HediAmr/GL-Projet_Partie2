@@ -3,13 +3,13 @@ package org.junit.tests.assertion;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.fail;
@@ -217,7 +217,7 @@ public class AssertionTest {
 
     @Test(expected = AssertionError.class)
     public void IntegerDoesNotEqualLong() {
-        assertEquals(new Integer(1), new Long(1));
+        assertEquals(Integer.valueOf(1), Long.valueOf(1));
     }
 
     @Test
@@ -678,7 +678,7 @@ public class AssertionTest {
     @Test
     public void errorMessageDistinguishesDifferentValuesWithSameToString() {
         try {
-            assertEquals("4", new Integer(4));
+            assertEquals("4", Integer.valueOf(4));
         } catch (AssertionError e) {
             assertEquals("expected: java.lang.String<4> but was: java.lang.Integer<4>", e.getMessage());
             return;
@@ -804,8 +804,8 @@ public class AssertionTest {
 
     @Test
     public void assertNotEqualsIncludesTheValueBeingTested() {
-        Integer value1 = new Integer(1);
-        Integer value2 = new Integer(1);
+        Integer value1 = 1;
+        Integer value2 = 1;
 
         try {
             assertNotEquals(value1, value2);

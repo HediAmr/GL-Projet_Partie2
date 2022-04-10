@@ -2,10 +2,10 @@ package org.junit.rules;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
+import org.junit.AssumptionViolatedException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.function.ThrowingRunnable;
-import org.junit.internal.AssumptionViolatedException;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

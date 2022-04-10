@@ -148,8 +148,8 @@ public class AssertTest extends TestCase {
     }
 
     public void testAssertNotSame() {
-        assertNotSame(new Integer(1), null);
-        assertNotSame(null, new Integer(1));
+        assertNotSame(1, null);
+        assertNotSame(null, 1);
         assertNotSame(new Integer(1), new Integer(1));
         try {
             Integer obj = 1;

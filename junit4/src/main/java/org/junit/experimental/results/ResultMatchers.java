@@ -20,7 +20,7 @@ public class ResultMatchers {
      * @deprecated will be private soon.
      */
     @Deprecated
-    public ResultMatchers() {
+    private ResultMatchers() {
     }
 
     /**

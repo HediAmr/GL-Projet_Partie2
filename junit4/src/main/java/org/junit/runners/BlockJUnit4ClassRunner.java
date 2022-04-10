@@ -314,10 +314,10 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
         }
 
         Statement statement = methodInvoker(method, test);
-        statement = possiblyExpectingExceptions(method, test, statement);
+        statement = possiblyExpectingExceptions(method, statement);
         statement = withPotentialTimeout(method, test, statement);
-        statement = withBefores(method, test, statement);
-        statement = withAfters(method, test, statement);
+        statement = withBefores(test, statement);
+        statement = withAfters(test, statement);
         statement = withRules(method, test, statement);
         statement = withInterruptIsolation(statement);
         return statement;
@@ -341,7 +341,7 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
      * otherwise.
      */
     protected Statement possiblyExpectingExceptions(FrameworkMethod method,
-            Object test, Statement next) {
+                                                    Statement next) {
         Test annotation = method.getAnnotation(Test.class);
         Class<? extends Throwable> expectedExceptionClass = getExpectedException(annotation);
         return expectedExceptionClass != null ? new ExpectException(next, expectedExceptionClass) : next;
@@ -370,8 +370,8 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
      * methods on this class and superclasses before running {@code next}; if
      * any throws an Exception, stop execution and pass the exception on.
      */
-    protected Statement withBefores(FrameworkMethod method, Object target,
-            Statement statement) {
+    protected Statement withBefores(Object target,
+                                    Statement statement) {
         List<FrameworkMethod> befores = getTestClass().getAnnotatedMethods(
                 Before.class);
         return befores.isEmpty() ? statement : new RunBefores(statement,
@@ -385,8 +385,8 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
      * are combined, if necessary, with exceptions from After methods into a
      * {@link MultipleFailureException}.
      */
-    protected Statement withAfters(FrameworkMethod method, Object target,
-            Statement statement) {
+    protected Statement withAfters(Object target,
+                                   Statement statement) {
         List<FrameworkMethod> afters = getTestClass().getAnnotatedMethods(
                 After.class);
         return afters.isEmpty() ? statement : new RunAfters(statement, afters,

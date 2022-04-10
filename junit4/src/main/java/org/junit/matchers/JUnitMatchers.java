@@ -13,6 +13,10 @@ import org.junit.internal.matchers.StacktracePrintingMatcher;
  * @since 4.4
  */
 public class JUnitMatchers {
+
+    private JUnitMatchers() {
+    }
+
     /**
      * @return A matcher matching any collection containing element
      * @deprecated Please use {@link CoreMatchers#hasItem(Object)} instead.

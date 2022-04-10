@@ -12,7 +12,7 @@ public class Classes {
      * @deprecated will be private soon.
      */
     @Deprecated
-    public Classes() {
+    private Classes() {
     }
 
     /**

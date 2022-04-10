@@ -22,57 +22,11 @@ import org.junit.internal.InexactComparisonCriteria;
  * @see AssertionError
  * @since 4.0
  */
-public class Assert {
+public class Assert extends AbstractAssert {
     /**
      * Protect constructor since it is a static only class
      */
     protected Assert() {
-    }
-
-    /**
-     * Asserts that a condition is true. If it isn't it throws an
-     * {@link AssertionError} with the given message.
-     *
-     * @param message the identifying message for the {@link AssertionError} (<code>null</code>
-     * okay)
-     * @param condition condition to be checked
-     */
-    public static void assertTrue(String message, boolean condition) {
-        if (!condition) {
-            fail(message);
-        }
-    }
-
-    /**
-     * Asserts that a condition is true. If it isn't it throws an
-     * {@link AssertionError} without a message.
-     *
-     * @param condition condition to be checked
-     */
-    public static void assertTrue(boolean condition) {
-        assertTrue(null, condition);
-    }
-
-    /**
-     * Asserts that a condition is false. If it isn't it throws an
-     * {@link AssertionError} with the given message.
-     *
-     * @param message the identifying message for the {@link AssertionError} (<code>null</code>
-     * okay)
-     * @param condition condition to be checked
-     */
-    public static void assertFalse(String message, boolean condition) {
-        assertTrue(message, !condition);
-    }
-
-    /**
-     * Asserts that a condition is false. If it isn't it throws an
-     * {@link AssertionError} without a message.
-     *
-     * @param condition condition to be checked
-     */
-    public static void assertFalse(boolean condition) {
-        assertFalse(null, condition);
     }
 
     /**
